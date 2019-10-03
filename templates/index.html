@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head>
+	<title>Upload</title>
+</head>
+<body>
+<h1>Mosaicing</h1>
+<form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+    <input type=file name=photo>
+    <input type="submit">
+</form>
+</body>
+</html>
