@@ -1,7 +1,12 @@
 <!doctype html>
 <html>
 <head>
-	<title>Upload</title>
+    <title>Upload</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}" as="style">
 </head>
 <body>
     <section>
@@ -17,10 +22,10 @@
         </p>
     </section>
     <section>
-        <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
-            <input type=file name=photo>
-            <input type="submit">
-        </form>
+            <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+                <input type=file name=photo required>
+                <input type="submit">
+            </form>
     </section>
 </body>
 </html>

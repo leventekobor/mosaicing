@@ -1,0 +1,38 @@
+section {
+  padding: 20px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+section p {
+  max-width: 800px;
+}
+
+input[type=file] {
+  background-color: #3CBC8D;
+  color: white;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input {
+  background: #3cb878;
+  color: white;
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: 0.5s background;
+}
+
+input:hover {
+  background: #1b7e4b;
+}
+
+
