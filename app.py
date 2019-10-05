@@ -10,14 +10,16 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
 configure_uploads(app, photos)
 
 
-@app.route('/upload', methods=['GET', 'POST'])
-def upload():
-    if request.method == 'POST' and 'photo' in request.files:
-        filename = photos.save(request.files['photo'])
-        full_filename = os.path.join(app.config['UPLOADED_PHOTOS_DEST'], filename)
-        return  render_template("image.html", filename=create_mosaic(full_filename))
+@app.route('/', methods=['GET'])
+def index():
     return render_template('index.html')
 
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    filename = photos.save(request.files['photo'])
+    full_filename = os.path.join(app.config['UPLOADED_PHOTOS_DEST'], filename)
+    return send_file(create_mosaic(full_filename), as_attachment=True)
 
 if __name__ == '__main__':
 	app.run(debug=True)
