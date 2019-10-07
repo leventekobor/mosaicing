@@ -7,6 +7,7 @@ app = Flask(__name__)
 photos = UploadSet('photos', IMAGES)
 app.config['UPLOADED_PHOTOS_DEST'] = 'static/img'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
+app.secret_key = "super secret key"
 configure_uploads(app, photos)
 
 
@@ -19,7 +20,7 @@ def index():
 def upload():
     filename = photos.save(request.files['photo'])
     full_filename = os.path.join(app.config['UPLOADED_PHOTOS_DEST'], filename)
-    return send_file(create_mosaic(full_filename), as_attachment=True)
+    return send_file(get_result_image(full_filename), as_attachment=True)
 
 if __name__ == '__main__':
 	app.run(debug=True)
