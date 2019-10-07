@@ -30,17 +30,16 @@ input[type=file] {
 }
 
 input {
-  background: #3cb878;
-  color: white;
+  background: white;
+  color: grey;
   padding: 10px;
-  border: 0;
+  border: 2px solid grey;
   border-radius: 10px;
-  font-size: 14px;
-  transition: 0.5s background;
+  font-size: 18px;
 }
 
 input:hover {
-  background: #1b7e4b;
+  cursor: pointer;
 }
 
 .example{
@@ -62,9 +61,85 @@ input:hover {
 .example-img{
   position: relative;
   width: 50%;
-  min-width: 250px;
+  min-width: 280px;
 }
 
 img{
   max-width: 100%;
 }
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.btn:hover{
+  cursor: pointer;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.submit-btn-wrapper{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.contact-me {
+  line-height: 40px;
+  word-spacing: 2px;
+}
+
+.social-links {
+  list-style: none;
+  float: right;
+}
+
+.social-links li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.social-links li:last-child {
+  margin-right: 0;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+  text-decoration: none;
+  border: 0;
+  color: #888;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.social-links li a:link,
+.social-links li a:visited {
+    font-size: 200%;
+}
+
+
+.ion-social-github,
+.ion-email {
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.ion-social-github:hover { color: #3b5998; }
+
+.ion-email:hover { color: #dd4b39; }

@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}" as="style">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 <body>
     <section class="top">
@@ -26,10 +27,18 @@
                 </div>
             </div>
         </div>
+        <div>
+            <p>To apply Bayer filter based mosaic to your choosen image. Simple upload the image and then hit submit. Then the downloading will automatically start.</p>
+        </div>
         <div class="upload-form">
             <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
-                <input type=file name=photo required>
-                <input type="submit">
+                <div class="upload-btn-wrapper">
+                        <button class="btn">Upload a file</button>
+                        <input type="file" name="photo" required/>
+                      </div>
+                <div class="submit-btn-wrapper">
+                    <input type="submit">
+                </div>     
             </form>
         </div>
     </section>
@@ -41,6 +50,15 @@
     </section>
     <section>
         <h3>Feedback and reach me</h3>
+        <div class="contact-me">
+            <p>I appriciate if you give me some feedback or if you want to contact me feel free to look up my GitHub page or write me an email! Thank you!</p>
+        </div>
+        <div>
+                <ul class="social-links">
+                    <li><a href="https://github.com/leventekobor94" target="_blank"><i class="ion-social-github"></i></a></li>
+                    <li><a href="mailto:levente.kobo94@gmail.com" target="_blank"><i class="ion-email"></i></a></li>
+                </ul>
+            </div>
     </section>
 </body>
 </html>
