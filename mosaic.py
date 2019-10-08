@@ -18,26 +18,52 @@ def demosaic(img):
     cols = img.shape[1]
     for i in range(1, rows - 1):
         for j in range(1, cols - 1):
-            if(img.item(i, j, 2) == 0):
-                #red
-                img.itemset((i, j, 2),
-                (img.item(i - 1, j, 2) +
-                img.item(i + 1, j, 2)) / 2)
-                red+=1
-            if(img.item(i, j, 1) == 0):
-                #green
-                img.itemset((i, j, 1),
-                (img.item(i, j - 1, 1) +
-                img.item(i, j + 1, 1) +
-                img.item(i - 1, j, 1) +
-                img.item(i + 1, j, 1)) / 4)
-                green+=1
-            if(img.item(i, j, 0) == 0):
-                #blue
-                img.itemset((i, j, 0),
-                (img.item(i, j + 1, 0) +
-                img.item(i, j - 1, 0)) / 2)
-                blue+=1
+            if(i % 2 == 0):
+                if(img.item(i, j, 1) == 0):
+                    img.itemset((i, j, 1),
+                    (img.item(i, j - 1, 1) +
+                    img.item(i, j + 1, 1) +
+                    img.item(i - 1, j, 1) +
+                    img.item(i + 1, j, 1)) / 4)
+                if(img.item(i, j, 2) == 0):
+                    if(j % 2 == 0):
+                        img.itemset((i, j, 2),
+                        (img.item(i - 1, j, 2) +
+                        img.item(i + 1, j, 2) / 2))
+                if(img.item(i, j, 0) == 0):
+                    if(j % 2 == 0):
+                        img.itemset((i, j, 0),
+                        (img.item(i, j - 1, 0) +
+                        img.item(i, j + 1, 0) / 2))
+                    else:
+                        img.itemset((i, j, 0),
+                        (img.item(i - 1, j - 1, 0) +
+                        img.item(i - 1, j + 1, 0) +
+                        img.item(i + 1, j - 1, 0) +
+                        img.item(i + 1, j + 1, 0)) / 4)
+            else:
+                if(img.item(i, j, 1) == 0):
+                    img.itemset((i, j, 1),
+                    (img.item(i, j - 1, 1) +
+                    img.item(i, j + 1, 1) +
+                    img.item(i - 1, j, 1) +
+                    img.item(i + 1, j, 1)) / 4)
+                if(img.item(i, j, 2) == 0):
+                    if(j % 2 == 0):
+                        img.itemset((i, j, 2),
+                        (img.item(i - 1, j - 1, 2) +
+                        img.item(i - 1, j + 1, 2) +
+                        img.item(i + 1, j - 1, 2) +
+                        img.item(i + 1, j + 1, 2)) / 4)
+                    else:
+                        img.itemset((i, j, 2),
+                        (img.item(i - 1, j, 2) +
+                        img.item(i + 1, j, 2) / 2))
+                if(img.item(i, j, 0) == 0):
+                    img.itemset((i, j, 0),
+                    (img.item(i + 1, j, 0) +
+                    img.item(i - 1, j, 0) / 2))
+
     cv2.imshow("demosaic", img)
     print(img)
     cv2.imwrite("done.png", img)
