@@ -68,6 +68,7 @@ img{
   max-width: 100%;
 }
 .upload-btn-wrapper {
+  margin-top: 30px;
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -108,7 +109,8 @@ img{
 
 .social-links {
   list-style: none;
-  float: right;
+  align-items: center;
+  padding: 0;
 }
 
 .social-links li {

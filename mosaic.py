@@ -4,13 +4,14 @@ import random
 
 
 def get_result_image(path):
-    img = cv2.imread(path)
-    if(is_mosaic(img)):
-        return mosaic(img)
+    if(is_mosaic(path)):
+        return demosaic(path)   
     else:
-        return demosaic(img)
+        return mosaic(path)
+        
 
-def demosaic(img):
+def demosaic(path):
+    img = cv2.imread(path)
     green = 0
     blue = 0
     red = 0
@@ -63,14 +64,14 @@ def demosaic(img):
                     img.itemset((i, j, 0),
                     (img.item(i + 1, j, 0) +
                     img.item(i - 1, j, 0) / 2))
-
-    cv2.imshow("demosaic", img)
-    print(img)
-    cv2.imwrite("done.png", img)
-    cv2.waitKey(0)
+    path = path.replace(
+    path.split(".")[len(path.split(".")) - 1], "png")
+    cv2.imwrite(path, img)
+    return path
                 
 
-def mosaic(img):
+def mosaic(path):
+    img = cv2.imread(path)
     rows = img.shape[0]
     cols = img.shape[1]
     for i in range(rows):
@@ -95,7 +96,8 @@ def mosaic(img):
     return path
 
 
-def is_mosaic(img):
+def is_mosaic(path):
+    img = cv2.imread(path)
     for i in range(10):
         x = random.randint(0, img.shape[0])
         y = random.randint(0, img.shape[1])
@@ -109,6 +111,3 @@ def is_mosaic(img):
             img.item(x, y, 2) > 0):
                 return False
 
-
-img = cv2.imread("/Users/mac/Documents/greenfox/mosaicing/static/img/parrot-super-web-page.png")
-demosaic(img)

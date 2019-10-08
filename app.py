@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, send_file, flash
 from flask_uploads import UploadSet, configure_uploads, IMAGES
-from mosaic import create_mosaic
+from mosaic import get_result_image
 
 app = Flask(__name__)
 photos = UploadSet('photos', IMAGES)

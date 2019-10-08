@@ -27,8 +27,20 @@
                 </div>
             </div>
         </div>
-        <div>
-            <p>To apply Bayer filter based mosaic to your choosen image. Simple upload the image and then hit submit. Then the downloading will automatically start.</p>
+        <h2>Or...</h2>
+        <div class="example">
+            <div class="example-img">
+                <img src="/static/img/parrot-super-web-page.png" alt="">
+                <div class="label">
+                    before
+                </div>
+            </div>
+            <div class="example-img">
+                <img src="/static/img/parrot-super-web-page.jpg" alt="">
+                <div class="label">
+                    after
+                </div>
+            </div>
         </div>
         <div class="upload-form">
             <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
