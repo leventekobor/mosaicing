@@ -12,6 +12,17 @@ section {
   font-size: 20px;
 }
 
+footer {
+  padding: 20px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+
 section p {
   max-width: 800px;
 }

@@ -1,6 +1,8 @@
 import cv2
 import os
 import random
+import numpy as np
+from matplotlib import pyplot as plt
 
 
 def get_result_image(path):
@@ -110,4 +112,7 @@ def is_mosaic(path):
             img.item(x, y, 1) > 0 and
             img.item(x, y, 2) > 0):
                 return False
+
+
+
 
