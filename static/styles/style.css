@@ -74,6 +74,21 @@ input:hover {
   width: 50%;
   min-width: 280px;
 }
+.example2{
+  display: flex;
+  max-width: 900px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.example-text{
+  position: relative;
+  width: 50%;
+  min-width: 280px;
+
+}
 
 img{
   max-width: 100%;
